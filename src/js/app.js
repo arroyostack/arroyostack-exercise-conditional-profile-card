@@ -23,24 +23,50 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); //print on the console
-  // here we ask the logical questions to make decisions on how to build the html
-  // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
-  let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
-  if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  // Variables destructuring
+  let {
+    includeCover,
+    background,
+    avatarURL,
+    socialMediaPosition,
+    twiter,
+    github,
+    linkedin,
+    instagram,
+    name,
+    lastname,
+    role,
+    country,
+    city
+  } = variables;
 
-  // reset the website body with the new html output
+  // Assigning default values
+  name = name || "Your name";
+  lastname = lastname || "Your lastname";
+  role = role || "Your role";
+  city = city || "City";
+  country = country || "Country";
+  instagram = instagram || "4geeksacademy";
+  github = github || "4geeksacademy";
+  linkedin = linkedin || "4geeksacademy";
+  twiter = twiter || "4geeksacademy";
+
+  // Show/Hide Cover
+  let cover = `<div class="cover"><img src="${background}" /></div>`;
+  if (includeCover == false) cover = "<div class='cover'></div>";
+
+  // Body for Html
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <img src="${avatarURL}" class="photo" />
+          <h1>${name} ${lastname}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country}</h3>
+          <ul class="${socialMediaPosition}">
+            <li><a href="https://twitter.com/${twiter}" target="blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${github}" target="blank"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${linkedin}" target="blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${instagram}" target="blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
