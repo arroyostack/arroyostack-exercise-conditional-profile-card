@@ -41,15 +41,16 @@ function render(variables = {}) {
   } = variables;
 
   // Assigning default values
+  const organization = "4geeksacademy";
   name = name || "Your name";
   lastname = lastname || "Your lastname";
   role = role || "Your role";
   city = city || "City";
   country = country || "Country";
-  instagram = instagram || "4geeksacademy";
-  github = github || "4geeksacademy";
-  linkedin = linkedin || "4geeksacademy";
-  twiter = twiter || "4geeksacademy";
+  instagram = instagram || organization;
+  github = github || organization;
+  linkedin = linkedin || organization;
+  twiter = twiter || organization;
 
   // Show/Hide Cover
   let cover = `<div class="cover"><img src="${background}" /></div>`;
@@ -65,7 +66,7 @@ function render(variables = {}) {
           <ul class="${socialMediaPosition}">
             <li><a href="https://twitter.com/${twiter}" target="blank"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/${github}" target="blank"><i class="fa-brands fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/${linkedin}" target="blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://linkedin.com/in/${linkedin}" target="blank"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="https://instagram.com/${instagram}" target="blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
