@@ -29,7 +29,7 @@ function render(variables = {}) {
     background,
     avatarURL,
     socialMediaPosition,
-    twiter,
+    twitter,
     github,
     linkedin,
     instagram,
@@ -50,7 +50,7 @@ function render(variables = {}) {
   instagram = instagram || organization;
   github = github || organization;
   linkedin = linkedin || organization;
-  twiter = twiter || organization;
+  twitter = twitter || organization;
 
   // Show/Hide Cover
   let cover = `<div class="cover"><img src="${background}" /></div>`;
@@ -64,10 +64,16 @@ function render(variables = {}) {
           <h2>${role}</h2>
           <h3>${city}, ${country}</h3>
           <ul class="${socialMediaPosition}">
-            <li><a href="https://twitter.com/${twiter}" target="blank"><i class="fab fa-twitter"></i></a></li>
+
+            <li><a href="https://twitter.com/${twitter
+              .replace(/\s/g, "")
+              .toLowerCase()}" target="blank"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/${github}" target="blank"><i class="fa-brands fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/in/${linkedin}" target="blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/${instagram}" target="blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://linkedin.com/in/${linkedin.replace(
+              /\s/g,
+              ""
+            )}" target="blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${instagram}/" target="blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
